@@ -10,26 +10,29 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.io.File;
 import java.util.List;
 
 public class FruitsAdapter extends  ArrayAdapter<Fruits>{
     Activity context;
-    List<Fruits> fruitsList;
-    public FruitsAdapter(Activity context,List<Fruits> fruits)
-    {super(context,R.layout.fruit_listview,fruits);
+    List <Fruits> fruitsList;
+    public  FruitsAdapter(Activity context,List<Fruits> fruitsList)
+    {   super(context,R.layout.fruit_listview,fruitsList);
         this.context=context;
-        this.fruitsList=fruits;
+         this.fruitsList=fruitsList;
     }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater=context.getLayoutInflater();
-        View myView=inflater.inflate(R.layout.fruit_listview,null,true);
-        TextView name=myView.findViewById(R.id.name);
-        TextView color=myView.findViewById(R.id.color);
+        LayoutInflater inflater =context.getLayoutInflater();
+        View myview = inflater.inflate(R.layout.fruit_listview, null, true);
+        TextView  name = myview.findViewById(R.id.name);
+        TextView  color = myview.findViewById(R.id.color);
         Fruits fruits=getItem(position);
         name.setText(fruits.getFruit_name());
         color.setText(fruits.getFruit_color());
-        return  myView;
+        return  myview;
     }
 }

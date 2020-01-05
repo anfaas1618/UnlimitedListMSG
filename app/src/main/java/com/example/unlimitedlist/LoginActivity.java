@@ -24,6 +24,7 @@ import com.google.firebase.database.core.utilities.Utilities;
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     Intent change;
+
     EditText editTextUsername;
     FirebaseDatabase database= FirebaseDatabase.getInstance();
    public  String GotUsername,keyCheckglobal;
@@ -61,8 +62,9 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             final   String keyCheck = snap.getKey();
                             keyCheckglobal=keyCheck;
+
                             if (keyCheck.equals(GotUsername))
-                            {
+                            {   keyCheckglobal=keyCheck;
                                 click=true;
 
                             }
@@ -85,9 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
 
-                    if (click==true)
+                    if (click)
                     {
-                        Toast.makeText(LoginActivity.this, "loda", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "oops name is taken", Toast.LENGTH_SHORT).show();
+                        Log.i("amaan",keyCheckglobal);
                     }
 
 
