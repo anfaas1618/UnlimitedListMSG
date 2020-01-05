@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     List<Fruits> fruitsList;
     Button send;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference myRef = database.getReference("cxc");
+     DatabaseReference myRef = database.getReference("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 fruitsList.clear();
                 for (DataSnapshot snap:dataSnapshot.getChildren())
-                {     Fruits fruits = snap.getValue(Fruits.class);
+                {   Log.i("anfaasssss",snap.getKey());
+                    Fruits fruits = snap.getValue(Fruits.class);
                         fruitsList.add(fruits);
                         }
                     FruitsAdapter fruitsAdapter=new FruitsAdapter(MainActivity.this,fruitsList);
@@ -87,10 +88,21 @@ public class MainActivity extends AppCompatActivity {
         String fruitName=cinfruit.getText().toString();
         String fruitColor=cinColor.getText().toString();
         Fruits fruits=new Fruits(fruitName,fruitColor);
-        String id=myRef.push().getKey();
-        myRef.child(id).setValue(fruits);
+        String value = null;
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            value = bundle.getString("sample_name");
+        }
+        myRef.child(value).setValue(fruits);
 
     }
+    public static void firebaseREf()
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+    }
+
 
 
 
