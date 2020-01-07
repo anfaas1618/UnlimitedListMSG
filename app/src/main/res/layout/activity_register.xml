@@ -6,19 +6,20 @@
     android:orientation="vertical"
    >
 
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="469dp"
+        android:hint="Enter email"
+        android:inputType="textEmailAddress" />
+
     <LinearLayout
         android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Enter email"
-            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -35,6 +36,27 @@
             android:layout_margin="15dp"
             android:text="Signup" />
 
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="verify" />
+
     </LinearLayout>
+
+    <!--suppress AndroidDomInspection -->
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="471dp"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:layout_toEndOf="@+id/editTextEmail"
+        android:text="@vitbhopal.ac.in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
 </RelativeLayout>

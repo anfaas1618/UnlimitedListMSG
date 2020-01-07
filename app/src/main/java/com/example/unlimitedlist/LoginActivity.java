@@ -25,6 +25,7 @@ import com.google.firebase.database.core.utilities.Utilities;
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     Intent change;
+    public static final  String vitString="@vitbhopal.ac.in";
 
     EditText editTextUsername;
     FirebaseDatabase database= FirebaseDatabase.getInstance();
